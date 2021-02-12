@@ -60,11 +60,10 @@ function Books() {
                 <div>
                   <div></div>
                   <div></div>
-                  <p>
-                    {book.searchInfo
-                      ? book.searchInfo.textSnippet
-                      : book.subtitle}
-                  </p>
+
+                  {book.volumeInfo
+                    ? book.volumeInfo.description
+                    : book.subtitle}
                 </div>
 
                 <hr />
