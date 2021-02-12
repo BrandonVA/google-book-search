@@ -1,7 +1,7 @@
 import React from "react";
 import Books from "./pages/Books";
 import NoMatch from "./pages/NoMatch";
-// import Nav from "./components/Nav";
+import HeadingNav from "./components/HeadingNav/HeadingNav";
 import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
 import BooksSaved from "./pages/BooksSaved";
 
@@ -12,7 +12,7 @@ function App() {
   return (
     <Router>
       <div>
-        {/* <Nav /> */}
+        <HeadingNav />
         <Switch>
           <Route exact path="/">
             <Books />
