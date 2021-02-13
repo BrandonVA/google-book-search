@@ -39,7 +39,7 @@ const BooksSaved = () => {
         <h1>Books On My List</h1>
 
         {books.length ? (
-          <StoredBooks books={books} />
+          <StoredBooks books={books} deleteBook={deleteBook} />
         ) : (
           <h3>No Results to Display</h3>
         )}

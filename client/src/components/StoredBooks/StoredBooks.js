@@ -1,6 +1,6 @@
 import React from "react";
 
-const StoredBooks = ({ books }) => {
+const StoredBooks = ({ books, deleteBook }) => {
   return (
     <div>
       <ul>
