@@ -5,10 +5,7 @@ import HeadingNav from "./components/HeadingNav/HeadingNav";
 import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
 import BooksSaved from "./pages/BooksSaved";
 
-// The app will not render correctly until you setup a Route component.
-// Refer to the Basic Example documentation if you need to.
-// (https://reacttraining.com/react-router/web/example/basic)
-function App() {
+const App = () => {
   return (
     <Router>
       <div>
@@ -27,6 +24,6 @@ function App() {
       </div>
     </Router>
   );
-}
+};
 
 export default App;
