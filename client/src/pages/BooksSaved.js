@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from "react";
+import StoredBooks from "../components/StoredBooks/StoredBooks";
 
 import API from "../utils/API";
 // import { Link } from "react-router-dom";
@@ -38,18 +39,7 @@ const BooksSaved = () => {
         <h1>Books On My List</h1>
 
         {books.length ? (
-          <ul>
-            {books.map((book) => (
-              <li key={book._id}>
-                <a to={"/books/" + book._id}>
-                  <strong>
-                    {book.title} by {book.author}
-                  </strong>
-                </a>
-                <button onClick={() => deleteBook(book._id)}>X</button>
-              </li>
-            ))}
-          </ul>
+          <StoredBooks books={books} />
         ) : (
           <h3>No Results to Display</h3>
         )}
