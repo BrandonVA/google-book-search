@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from "react";
+import SearchResults from "../components/SearchResults/SearchResults";
 // import DeleteBtn from "../components/DeleteBtn";
 import API from "../utils/API";
 // import { Link } from "react-router-dom";
@@ -46,30 +47,7 @@ function Books() {
       <div>
         <h1>Books Results</h1>
         {books.length > 0 ? (
-          <div>
-            {books.map((book) => (
-              <div key={book.id}>
-                <h4>{book.volumeInfo.title}</h4>
-                <h6>
-                  {book.volumeInfo.authors
-                    ? book.volumeInfo.authors.map((name) => (
-                        <strong> {name}, </strong>
-                      ))
-                    : "No Authors"}
-                </h6>
-                <div>
-                  <div></div>
-                  <div></div>
-
-                  {book.volumeInfo
-                    ? book.volumeInfo.description
-                    : book.subtitle}
-                </div>
-
-                <hr />
-              </div>
-            ))}
-          </div>
+          <SearchResults books={books} />
         ) : (
           <h3>No Results to Display</h3>
         )}
