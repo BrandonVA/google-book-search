@@ -9,14 +9,10 @@ const HeadingNav = () => {
         <Nav.Link href="/">Google Books</Nav.Link>
       </Nav.Item>
       <Nav.Item as="li">
-        <Nav.Link eventKey="link-2">
-          <Link to="/">Search</Link>
-        </Nav.Link>
+        <Link to="/">Search</Link>
       </Nav.Item>
       <Nav.Item as="li">
-        <Nav.Link eventKey="link-2">
-          <Link to="/saved">Saved</Link>
-        </Nav.Link>
+        <Link to="/saved">Saved</Link>
       </Nav.Item>
     </Nav>
   );
