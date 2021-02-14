@@ -29,7 +29,7 @@ const BooksSaved = () => {
   //     const { name, value } = event.target;
   //     setFormObject({ ...formObject, [name]: value });
   //   }
-
+  console.log(books);
   return (
     <div>
       <div>
