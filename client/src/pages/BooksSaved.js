@@ -1,16 +1,13 @@
 import React, { useState, useEffect } from "react";
 import StoredBooks from "../components/StoredBooks/StoredBooks";
-
+import { Jumbotron } from "react-bootstrap";
 import API from "../utils/API";
-// import { Link } from "react-router-dom";
 
 const BooksSaved = () => {
   const [books, setBooks] = useState([]);
-  //   const [formObject, setFormObject] = useState({});
 
   useEffect(() => {
     loadBooks();
-    // searchBook("Harry Potter");
   }, []);
 
   function loadBooks() {
@@ -24,19 +21,16 @@ const BooksSaved = () => {
       .then((res) => loadBooks())
       .catch((err) => console.log(err));
   }
-
-  //   function handleInputChange(event) {
-  //     const { name, value } = event.target;
-  //     setFormObject({ ...formObject, [name]: value });
-  //   }
-  console.log(books);
   return (
     <div>
-      <div>
+      <Jumbotron className="text-center">
         <h1>Saved Books</h1>
-      </div>
+        <p>Delete a book or go visit the page to buy it</p>
+      </Jumbotron>
       <div>
-        <h1>Books On My List</h1>
+        <div className="text-center">
+          <h1>Books On My List</h1>
+        </div>
 
         {books.length ? (
           <StoredBooks books={books} deleteBook={deleteBook} />

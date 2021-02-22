@@ -1,15 +1,13 @@
 import React, { useState, useEffect } from "react";
 import SearchResults from "../components/SearchResults/SearchResults";
-// import DeleteBtn from "../components/DeleteBtn";
 import API from "../utils/API";
-// import { Link } from "react-router-dom";
+import { Button, Jumbotron, InputGroup, FormControl } from "react-bootstrap";
 
 function Books() {
   const [books, setBooks] = useState([]);
   const [formObject, setFormObject] = useState({});
 
   useEffect(() => {
-    // loadBooks();
     searchBook("Harry Potter");
   }, []);
 
@@ -23,7 +21,7 @@ function Books() {
     searchBook(formObject.title);
   }
   function searchBook(title) {
-    API.search(title).then((res) => {
+    API.searchGoogle(title).then((res) => {
       console.log(res.data.items);
       setBooks(res.data.items);
       console.log("______________________");
@@ -31,21 +29,38 @@ function Books() {
   }
 
   return (
-    <main>
-      <h1>Look For a Book to Read?</h1>
-      <form>
-        <input
-          onChange={handleInputChange}
-          name="title"
-          placeholder="Title (required)"
-        />
-        <button disabled={!formObject.title} onClick={handleFormSubmit}>
-          Search
-        </button>
-      </form>
+    <main style={{ margin: "10px" }}>
+      <Jumbotron className="text-center">
+        <h1>Look For a Book to Read?</h1>
+        <p>Search for a book on google books</p>
+
+        <InputGroup
+          style={{ width: "350px", margin: "2rem auto" }}
+          className="mb-3"
+        >
+          <FormControl
+            aria-describedby="search input"
+            name="title"
+            placeholder="Title (required)"
+            onChange={handleInputChange}
+          />
+          <InputGroup.Append>
+            <Button
+              disabled={!formObject.title}
+              onClick={handleFormSubmit}
+              variant="outline-secondary"
+            >
+              Search
+            </Button>
+          </InputGroup.Append>
+        </InputGroup>
+      </Jumbotron>
 
       <div>
-        <h1>Books Results</h1>
+        <div className="text-center">
+          <h1>Books Results</h1>
+        </div>
+
         {books.length > 0 ? (
           <SearchResults books={books} />
         ) : (

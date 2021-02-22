@@ -4,7 +4,7 @@ import { Markup } from "interweave";
 
 const StoredBooks = ({ books, deleteBook }) => {
   return (
-    <Row>
+    <Row className="m-3 p-3">
       {books.map((book) => (
         <Col xl={12} key={book.id}>
           <Row>

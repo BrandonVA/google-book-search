@@ -16,7 +16,6 @@ const SearchResults = ({ books }) => {
       image: book.volumeInfo.imageLinks.thumbnail,
     };
     API.saveBook(bookToSave);
-    console.log(bookToSave);
   };
   return (
     <Row className="m-3 p-3">
@@ -45,10 +44,21 @@ const SearchResults = ({ books }) => {
             <Col xl={4}>
               {" "}
               <div style={{ display: "flex", justifyContent: "flex-end" }}>
-                <Button className="m-1" onClick={saveBook}>
+                <a
+                  href={book.volumeInfo.infoLink}
+                  className="btn m-1"
+                  style={{
+                    background: "lightblue",
+                    padding: "6px 16px",
+                    color: "grey",
+                  }}
+                >
                   View
-                </Button>{" "}
-                <Button className="m-1" onClick={() => saveBook(book)}>
+                </a>{" "}
+                <Button
+                  className="m-1 btn-success"
+                  onClick={() => saveBook(book)}
+                >
                   Save
                 </Button>
               </div>
@@ -59,10 +69,15 @@ const SearchResults = ({ books }) => {
             {book.volumeInfo.description ? (
               book.volumeInfo.description
             ) : (
-              <Markup content={book.searchInfo.textSnippet} />
+              <Markup
+                content={
+                  book.searchInfo
+                    ? book.searchInfo.textSnippet
+                    : "No description"
+                }
+              />
             )}
           </div>
-
           <hr />
         </Col>
       ))}
