@@ -1,6 +1,6 @@
 // import { Button } from "bootstrap";
 import React from "react";
-import { Row, Col, Button } from "react-bootstrap";
+import { Row, Col, Button, Image } from "react-bootstrap";
 import { Markup } from "interweave";
 import API from "../../utils/API";
 
@@ -13,7 +13,9 @@ const SearchResults = ({ books }) => {
         ? book.volumeInfo.description
         : book.searchInfo.textSnippet,
       link: book.volumeInfo.infoLink,
-      image: book.volumeInfo.imageLinks.thumbnail,
+      image: book.volumeInfo.imageLinks
+        ? book.volumeInfo.imageLinks.thumbnail
+        : "https://via.placeholder.com/150",
     };
     API.saveBook(bookToSave);
   };
@@ -65,19 +67,39 @@ const SearchResults = ({ books }) => {
             </Col>
           </Row>
 
-          <div>
-            {book.volumeInfo.description ? (
-              book.volumeInfo.description
-            ) : (
-              <Markup
-                content={
-                  book.searchInfo
-                    ? book.searchInfo.textSnippet
-                    : "No description"
+          <Row>
+            <Col
+              md={2}
+              style={{
+                display: "flex",
+                alignItems: "center",
+                justifyContent: "center",
+              }}
+            >
+              <Image
+                className="image-fluid"
+                src={
+                  book.volumeInfo.imageLinks
+                    ? book.volumeInfo.imageLinks.thumbnail
+                    : "https://via.placeholder.com/150"
                 }
+                thumbnail
               />
-            )}
-          </div>
+            </Col>
+            <Col md={10}>
+              {book.volumeInfo.description ? (
+                book.volumeInfo.description
+              ) : (
+                <Markup
+                  content={
+                    book.searchInfo
+                      ? book.searchInfo.textSnippet
+                      : "No description"
+                  }
+                />
+              )}
+            </Col>
+          </Row>
           <hr />
         </Col>
       ))}
