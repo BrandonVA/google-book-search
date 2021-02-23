@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import React, { useState } from "react";
 import SearchResults from "../components/SearchResults/SearchResults";
 import API from "../utils/API";
 import { Button, Jumbotron, InputGroup, FormControl } from "react-bootstrap";
@@ -7,9 +7,9 @@ function Books() {
   const [books, setBooks] = useState([]);
   const [formObject, setFormObject] = useState({});
 
-  useEffect(() => {
-    searchBook("Harry Potter");
-  }, []);
+  // useEffect(() => {
+  //   searchBook("Harry Potter");
+  // }, []);
 
   function handleInputChange(event) {
     const { name, value } = event.target;
@@ -64,7 +64,10 @@ function Books() {
         {books.length > 0 ? (
           <SearchResults books={books} />
         ) : (
-          <h3>No Results to Display</h3>
+          <div className="text-center">
+            {" "}
+            <h3>No Results to Display Search for a book</h3>
+          </div>
         )}
       </div>
     </main>

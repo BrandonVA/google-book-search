@@ -9,8 +9,8 @@ This project is a simple MERN application that searches for books that are on th
 <img src="assets\images\saved.png">
 <br />
 
-[Deployed-Site](https://shielded-escarpment-32907.herokuapp.com/) <br />
-[Project-Page](https://github.com/BrandonVA/Budget-Tracker)
+[Deployed-Site](https://google-book-search123.herokuapp.com/) <br />
+[Project-Page](https://github.com/BrandonVA/google-book-search)
 
 ## Table of Contents
 
